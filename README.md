@@ -1,0 +1,1 @@
+# plugins-map-location-picker-at-checkout-for-woocommerce
