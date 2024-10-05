@@ -4,7 +4,7 @@ Tags: woocommerce, location picker, checkout map, geolocation, google map
 Requires at least: 5.5
 Requires PHP: 7.4
 Tested up to: 6.6
-Stable tag: 1.10.3
+Stable tag: 1.10.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -272,13 +272,18 @@ Post it on the [support forum](https://wordpress.org/support/plugin/map-location
 15. Shipping Cost by Store Distance (PRO)
 16. Location Picker at Checkout and Delivery & Pickup Scheduling plugin activated at the same time
 17. Map Builder (PRO) Create custom maps that can be placed anywhere on your WooCommerce website
-18. Places Autocomplete searchbox inside the checkout map (PRO)
+18. Places Autocomplete search box inside the checkout map (PRO)
 
 == Upgrade Notice ==
 
 Always take a backup before updating your plugins!
 
 == Changelog ==
+
+= 1.10.4 (2024-10-04) =
+* [Fix] Issue with trials where the PRO plugin features were not unlocked.
+* [Dev] Updated Freemius SDK.
+* [Info] Tested on WC 9.3.
 
 = 1.10.3 (2024-08-14) =
 * [Fix] Store selector width on checkout page.

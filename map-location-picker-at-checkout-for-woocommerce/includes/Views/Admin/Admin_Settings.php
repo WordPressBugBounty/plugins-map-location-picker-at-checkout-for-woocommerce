@@ -58,7 +58,7 @@ class Admin_Settings extends \WC_Settings_Page {
         $this->label = __( 'Location Picker at Checkout', 'map-location-picker-at-checkout-for-woocommerce' );
         /* translators: 1: Dashicons outbound link icon */
         self::$learn_more = sprintf( __( 'Learn More %s', 'map-location-picker-at-checkout-for-woocommerce' ), '<span style="text-decoration: none" class="dashicons dashicons-external"></span>' );
-        $this->pro_label = ( lpac_fs()->is_not_paying() ? ' (' . esc_html__( 'PRO', 'map-location-picker-at-checkout-for-woocommerce' ) . ')' : '' );
+        $this->pro_label = ( lpac_fs()->can_use_premium_code() ? '' : ' (' . esc_html__( 'PRO', 'map-location-picker-at-checkout-for-woocommerce' ) . ')' );
         /**
          *  Define all hooks instead of inheriting from parent
          */
@@ -613,7 +613,7 @@ HTML;
             'type' => 'title',
             'desc' => self::create_plugin_settings_banner(),
         );
-        $dashicon = ( lpac_fs()->is_not_paying() ? "<span class='dashicons-before dashicons-lock'></span>" : '' );
+        $dashicon = ( lpac_fs()->can_use_premium_code() ? '' : "<span class='dashicons-before dashicons-lock'></span>" );
         $lpac_settings[] = array(
             'name'      => __( 'Note', 'map-location-picker-at-checkout-for-woocommerce' ),
             'id'        => 'lpac_cost_by_store_location_delivery_prices_row_id',
@@ -641,12 +641,12 @@ HTML;
             ),
             'store_icon_text'               => array(
                 'name'        => $dashicon . __( 'Icon URL', 'map-location-picker-at-checkout-for-woocommerce' ) . $this->pro_label,
-                'readonly'    => ( lpac_fs()->is_not_paying() ? true : false ),
+                'readonly'    => ( lpac_fs()->can_use_premium_code() ? false : true ),
                 'placeholder' => 'https://example.com/wp-content/.../icon.png',
             ),
             'store_shipping_methods_select' => array(
                 'name'     => $dashicon . __( 'Shipping Methods', 'map-location-picker-at-checkout-for-woocommerce' ) . $this->pro_label,
-                'readonly' => ( lpac_fs()->is_not_paying() ? true : false ),
+                'readonly' => ( lpac_fs()->can_use_premium_code() ? false : true ),
             ),
         );
         $adjusted_shipping_methods_array = array(array(
@@ -871,9 +871,7 @@ HTML;
             'options' => FunctionsHelper::get_available_coupons(),
             'css'     => 'min-width:300px;height: 100px',
         );
-        if ( lpac_fs()->is_not_paying() ) {
-            $lpac_settings = $this->create_dummy_visibility_settings_fields( $lpac_settings );
-        }
+        $lpac_settings = $this->create_dummy_visibility_settings_fields( $lpac_settings );
         $lpac_settings[] = array(
             'type' => 'sectionend',
             'id'   => 'lpac_map_visibility_settings_section_end',
@@ -1868,9 +1866,7 @@ HTML;
         $lpac_settings = array();
         if ( empty( $current_section ) || $current_section === 'general' ) {
             $lpac_settings = $this->create_general_setting_fields();
-            if ( lpac_fs()->is_not_paying() ) {
-                $lpac_settings = array_merge( $lpac_settings, $this->create_dummy_general_settings_fields() );
-            }
+            $lpac_settings = array_merge( $lpac_settings, $this->create_dummy_general_settings_fields() );
             $lpac_settings[] = array(
                 'type' => 'sectionend',
                 'id'   => 'lpac_general_settings_section_end',
@@ -1878,9 +1874,7 @@ HTML;
         }
         if ( $current_section === 'display' ) {
             $lpac_settings = $this->create_display_settings_fields();
-            if ( lpac_fs()->is_not_paying() ) {
-                $lpac_settings = array_merge( $lpac_settings, $this->create_dummy_display_settings_fields() );
-            }
+            $lpac_settings = array_merge( $lpac_settings, $this->create_dummy_display_settings_fields() );
             $lpac_settings[] = array(
                 'type' => 'sectionend',
                 'id'   => 'lpac_display_settings_section_end',
@@ -1894,14 +1888,10 @@ HTML;
         }
         // Add fields to Export tab
         if ( $current_section === 'export' ) {
-            if ( lpac_fs()->is_not_paying() ) {
-                $lpac_settings = $this->create_dummy_export_settings_fields();
-            }
+            $lpac_settings = $this->create_dummy_export_settings_fields();
         }
         if ( $current_section === 'shipping' ) {
-            if ( lpac_fs()->is_not_paying() ) {
-                $lpac_settings = array_merge( $lpac_settings, $this->create_dummy_shipping_setting_fields() );
-            }
+            $lpac_settings = array_merge( $lpac_settings, $this->create_dummy_shipping_setting_fields() );
         }
         if ( $current_section === 'tools' ) {
             $lpac_settings = $this->create_tools_setting_fields();
