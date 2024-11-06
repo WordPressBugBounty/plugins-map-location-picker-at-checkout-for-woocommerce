@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit45987172be67f350a7121f31a551b952
+class ComposerStaticInit8140b59f29551cb511efdbcac01103c3
 {
     public static $files = array (
         '174f5545298fc44fc2ee140f23d4bfef' => __DIR__ . '/..' . '/wpbp/pointerplus/pointerplus.php',
@@ -295,9 +295,9 @@ class ComposerStaticInit45987172be67f350a7121f31a551b952
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit45987172be67f350a7121f31a551b952::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit45987172be67f350a7121f31a551b952::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit45987172be67f350a7121f31a551b952::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8140b59f29551cb511efdbcac01103c3::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8140b59f29551cb511efdbcac01103c3::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit8140b59f29551cb511efdbcac01103c3::$classMap;
 
         }, null, ClassLoader::class);
     }

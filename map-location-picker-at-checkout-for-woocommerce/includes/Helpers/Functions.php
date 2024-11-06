@@ -69,7 +69,6 @@ class Functions {
 		 * Return false(hide the map) in all other situations.
 		 */
 		return false;
-
 	}
 
 	/**
@@ -85,7 +84,6 @@ class Functions {
 		$qr_code_resource_locator = $qr_code_resource_base . '/lpac/qr-codes/' . date( 'Y' ) . '/' . date( 'm' ) . '/' . date( 'd' ) . '/';
 
 		return $qr_code_resource_locator;
-
 	}
 
 	/**
@@ -190,7 +188,6 @@ class Functions {
 		}
 
 		return $normalized_shipping_methods;
-
 	}
 
 	/**
@@ -219,7 +216,6 @@ class Functions {
 		}
 
 		return $coupon_codes;
-
 	}
 
 	/**
@@ -331,7 +327,7 @@ class Functions {
 	 * @return string
 	 * @since 1.6.8
 	 */
-	public static function create_customer_directions_link( $latitude = '', $longitude = '' ) : string {
+	public static function create_customer_directions_link( $latitude = '', $longitude = '' ): string {
 		$provider = get_option( 'lpac_map_directions_provider', 'google_maps' );
 
 		$cords = '';
@@ -388,5 +384,4 @@ class Functions {
 		// Bring everything back together
 		return implode( '</script>', $parts );
 	}
-
 }

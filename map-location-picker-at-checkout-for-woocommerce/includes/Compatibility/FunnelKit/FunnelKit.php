@@ -31,5 +31,4 @@ class FunnelKit {
 	 * If there's need to add custom fields again in the future then this is how it was done before:
 	 * https://github.com/UVLabs/location-picker-at-checkout-for-woocommerce/blob/v1.6.11/includes/Compatibility/WooFunnels/WooFunnels.php
 	 */
-
 }

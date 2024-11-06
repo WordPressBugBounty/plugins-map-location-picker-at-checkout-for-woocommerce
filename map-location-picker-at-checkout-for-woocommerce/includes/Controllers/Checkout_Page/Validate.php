@@ -98,7 +98,7 @@ class Validate {
 	 *
 	 * @return void
 	 */
-	public function validate_location_fields( $fields, $errors ) : void {
+	public function validate_location_fields( $fields, $errors ): void {
 
 		if ( ! is_array( $fields ) && ! is_object( $errors ) ) {
 			return;
@@ -151,7 +151,7 @@ class Validate {
 	 *
 	 * @return void
 	 */
-	public function validate_places_autocomplete( array $fields, object $errors ) : void {
+	public function validate_places_autocomplete( array $fields, object $errors ): void {
 
 		if ( General_Settings::isPlacesAutoCompleteEnabled() === false ) {
 			return;
@@ -195,7 +195,7 @@ class Validate {
 	 *
 	 * @return void
 	 */
-	public function validateStoreLocationSelectorDropdown( array $fields, object $errors ) :void {
+	public function validateStoreLocationSelectorDropdown( array $fields, object $errors ): void {
 
 		/**
 		 * The store dropdown visibility might be changed via JS or other conditions
@@ -230,7 +230,5 @@ class Validate {
 			$error_msg = apply_filters( 'lpac_checkout_empty_origin_store_msg', $error_msg );
 			$errors->add( 'store-dropdown-validation', $error_msg );
 		}
-
 	}
-
 }

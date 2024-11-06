@@ -13,12 +13,12 @@
 
 namespace Lpac\Views\Admin;
 
- /**
-  * Class for creating region list.
-  *
-  * @package Lpac\Views\Admin
-  * @since 1.7.4
-  */
+/**
+ * Class for creating region list.
+ *
+ * @package Lpac\Views\Admin
+ * @since 1.7.4
+ */
 class RegionList {
 
 	/**
@@ -289,5 +289,4 @@ class RegionList {
 			'AX' => 'Åland Islands',
 		);
 	}
-
 }

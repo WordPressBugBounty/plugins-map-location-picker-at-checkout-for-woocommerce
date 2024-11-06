@@ -70,6 +70,4 @@ class General_Settings extends Base_Model {
 	}
 
 	// ------------- Places Autocomplete -------------/
-
-
 }

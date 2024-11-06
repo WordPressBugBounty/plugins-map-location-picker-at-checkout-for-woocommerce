@@ -59,5 +59,4 @@ class Upsells_Notices extends Notice {
 
 		$this->create_notice_markup( 'initial_pro_launch_notice', $content );
 	}
-
 }

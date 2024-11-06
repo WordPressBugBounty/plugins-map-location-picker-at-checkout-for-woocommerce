@@ -237,7 +237,6 @@ JAVASCRIPT;
 			</td>
 			</tr>
 		<?php
-
 	}
 
 	/**
@@ -516,7 +515,7 @@ JAVASCRIPT;
 	 * @param string $field_name
 	 * @return string
 	 */
-	private function get_field_type( string $field_name ) : string {
+	private function get_field_type( string $field_name ): string {
 		$type = explode( '_', $field_name );
 		$type = end( $type );
 		return $type;
@@ -543,7 +542,6 @@ JAVASCRIPT;
 			<p><a class="lpac-button" href="https://lpacwp.com/pricing?utm_source=banner&utm_medium=lpacdashboard&utm_campaign=proupsell" target="_blank"><?php echo $learn_more; //phpcs:ignore -- Already escaped above ?></a></p>
 		</div>
 		<?php
-
 	}
 
 	public function create_custom_wc_settings_image( $value ) {
@@ -668,5 +666,4 @@ JAVASCRIPT;
 			$this->prepareStoreLocationContent( $order );
 		}
 	}
-
 }

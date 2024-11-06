@@ -12,7 +12,7 @@
  * Plugin Name:       Kikote - Location Picker at Checkout for WooCommerce
  * Plugin URI:        https://lpacwp.com
  * Description:       Allow customers to choose their shipping or pickup location using a map at checkout.
- * Version:           1.10.4
+ * Version:           1.10.5
  * Requires at least: 5.7
  * Author:            Uriahs Victor
  * Author URI:        https://lpacwp.com
@@ -21,7 +21,7 @@
  * Text Domain:       map-location-picker-at-checkout-for-woocommerce
  * Domain Path:       /languages
  * WC requires at least: 5.5
- * WC tested up to: 9.3
+ * WC tested up to: 9.4
  * Requires Plugins: woocommerce
  * Requires PHP: 7.4
  */
@@ -30,7 +30,7 @@ if ( !defined( 'WPINC' ) ) {
     die;
 }
 if ( !defined( 'LPAC_VERSION' ) ) {
-    define( 'LPAC_VERSION', '1.10.4' );
+    define( 'LPAC_VERSION', '1.10.5' );
 }
 /**
  * Check PHP version
@@ -40,7 +40,7 @@ if ( function_exists( 'phpversion' ) ) {
         add_action( 'admin_notices', function () {
             echo "<div class='notice notice-error is-dismissible'>";
             /* translators: 1: Opening <p> HTML element 2: Opening <strong> HTML element 3: Closing <strong> HTML element 4: Closing <p> HTML element  */
-            echo sprintf(
+            printf(
                 esc_html__( '%1$s%2$sKikote - Location Picker at Checkout for WooCommerce NOTICE:%3$s PHP version too low to use this plugin. Please change to at least PHP 7.4. You can contact your web host for assistance in updating your PHP version.%4$s', 'map-location-picker-at-checkout-for-woocommerce' ),
                 '<p>',
                 '<strong>',
@@ -60,7 +60,7 @@ if ( defined( 'PHP_VERSION' ) ) {
         add_action( 'admin_notices', function () {
             echo "<div class='notice notice-error is-dismissible'>";
             /* translators: 1: Opening <p> HTML element 2: Opening <strong> HTML element 3: Closing <strong> HTML element 4: Closing <p> HTML element  */
-            echo sprintf(
+            printf(
                 esc_html__( '%1$s%2$sKikote - Location Picker at Checkout for WooCommerce NOTICE:%3$s PHP version too low to use this plugin. Please change to at least PHP 7.4. You can contact your web host for assistance in updating your PHP version.%4$s', 'map-location-picker-at-checkout-for-woocommerce' ),
                 '<p>',
                 '<strong>',
@@ -93,7 +93,7 @@ if ( !sl_wc_active() ) {
     add_action( 'admin_notices', function () {
         echo "<div class='notice notice-error is-dismissible'>";
         /* translators: 1: Opening <p> HTML element 2: Opening <strong> HTML element 3: Closing <strong> HTML element 4: Closing <p> HTML element  */
-        echo sprintf(
+        printf(
             esc_html__( '%1$s%2$sKikote - Location Picker at Checkout for WooCommerce NOTICE:%3$s WooCommerce is not activated, please activate it to use the plugin.%4$s', 'map-location-picker-at-checkout-for-woocommerce' ),
             '<p>',
             '<strong>',
@@ -120,7 +120,7 @@ if ( function_exists( 'lpac_fs' ) ) {
             global $lpac_fs;
             if ( !isset( $lpac_fs ) ) {
                 // Include Freemius SDK.
-                require_once dirname( __FILE__ ) . '/vendor/freemius/wordpress-sdk/start.php';
+                require_once __DIR__ . '/vendor/freemius/wordpress-sdk/start.php';
                 $lpac_fs = fs_dynamic_init( array(
                     'id'              => '8507',
                     'slug'            => 'map-location-picker-at-checkout-for-woocommerce',
@@ -165,7 +165,7 @@ if ( function_exists( 'lpac_fs' ) ) {
      * This is because both PRO and Free are generated from the same codebase, meaning composer autoloader file would already be
      * present and throw an error when trying to be redefined.
      */
-    require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+    require_once __DIR__ . '/vendor/autoload.php';
     /**
      * The code that runs during plugin activation.
      * This action is documented in includes/class-lpac-activator.php
@@ -240,7 +240,7 @@ if ( function_exists( 'lpac_fs' ) ) {
     lpac_fs()->add_action( 'after_uninstall', array(new Lpac_Uninstall(), 'remove_plugin_settings') );
     lpac_fs()->add_filter( 'show_deactivation_subscription_cancellation', '__return_false' );
     lpac_fs()->add_filter( 'plugin_icon', function () {
-        return dirname( __FILE__ ) . '/assets/img/logo.png';
+        return __DIR__ . '/assets/img/logo.png';
     } );
     /**
      * Constants

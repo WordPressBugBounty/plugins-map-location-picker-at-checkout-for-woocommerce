@@ -62,5 +62,4 @@ class Checkout_Provider {
 
 		return $provider;
 	}
-
 }

@@ -79,5 +79,4 @@ class Shortcodes {
 		$field = "<div id='lpac-store-selector-shortcode'><select class='lpac-store-selector-locations'>" . $options . '</select></div>';
 		return $field;
 	}
-
 }

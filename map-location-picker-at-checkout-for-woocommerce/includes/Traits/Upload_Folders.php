@@ -69,5 +69,4 @@ trait Upload_Folders {
 
 		return $upload_url;
 	}
-
 }

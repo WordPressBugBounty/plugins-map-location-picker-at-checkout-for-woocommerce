@@ -3,8 +3,8 @@ Contributors: uriahs-victor
 Tags: woocommerce, location picker, checkout map, geolocation, google map
 Requires at least: 5.5
 Requires PHP: 7.4
-Tested up to: 6.6
-Stable tag: 1.10.4
+Tested up to: 6.7
+Stable tag: 1.10.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -279,6 +279,11 @@ Post it on the [support forum](https://wordpress.org/support/plugin/map-location
 Always take a backup before updating your plugins!
 
 == Changelog ==
+
+= 1.10.5 (2024-11-06) =
+* [Dev] Updated Freemius SDK.
+* [Info] Tested on WP 6.7-rc3.
+* [Info] Tested on WC 9.4-rc3.
 
 = 1.10.4 (2024-10-04) =
 * [Fix] Issue with trials where the PRO plugin features were not unlocked.

@@ -93,5 +93,4 @@ class QR_Code_Generator {
 
 		// return $image_base64;
 	}
-
 }

@@ -34,7 +34,7 @@ class Siteground_Optimizer {
 	 * @return array
 	 * @since 1.6.14
 	 */
-	public function remove_defer_on_gmaps_script( array $exclude_list ) : array {
+	public function remove_defer_on_gmaps_script( array $exclude_list ): array {
 		$exclude_list[] = 'lpac-google-maps-js';
 		return $exclude_list;
 	}
@@ -48,7 +48,7 @@ class Siteground_Optimizer {
 	 * @return array
 	 * @since 1.6.14
 	 */
-	public function js_minify_exclude( array $exclude_list ) : array {
+	public function js_minify_exclude( array $exclude_list ): array {
 		$exclude_list[] = 'lpac-base-map';
 		$exclude_list[] = 'lpac-checkout-page-map';
 		$exclude_list[] = 'lpac-checkout-page-map-pro';
@@ -62,7 +62,7 @@ class Siteground_Optimizer {
 	 * @return array
 	 * @since 1.6.14
 	 */
-	public function js_combine_exclude_inline_script( array $exclude_list ) : array {
+	public function js_combine_exclude_inline_script( array $exclude_list ): array {
 		$exclude_list[] = 'GMapsScriptLoaded';
 		$exclude_list[] = 'Location Picker at Checkout version';
 		return $exclude_list;
@@ -75,11 +75,10 @@ class Siteground_Optimizer {
 	 * @return array
 	 * @since 1.6.14
 	 */
-	public function js_combine_exclude( array $exclude_list ) : array {
+	public function js_combine_exclude( array $exclude_list ): array {
 		$exclude_list[] = 'lpac-base-map';
 		$exclude_list[] = 'lpac-checkout-page-map';
 		$exclude_list[] = 'lpac-checkout-page-map-pro';
 		return $exclude_list;
 	}
-
 }

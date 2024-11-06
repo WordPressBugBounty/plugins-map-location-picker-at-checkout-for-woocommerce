@@ -37,11 +37,9 @@ class Admin {
 		<div class="notice notice-error is-dismissible">
 		<?php
 		/* translators: 1: Opening <p> HTML element 2: Opening <strong> HTML element 3: Closing <strong> HTML element 4: Closing <p> HTML element  */
-		echo sprintf( esc_html__( '%1$s%2$sKikote - Location Picker at Checkout for WooCommerce NOTICE:%3$s HTTPS not detected on this website. The plugin will not work. Please enable HTTPS on this website.%4$s', 'map-location-picker-at-checkout-for-woocommerce' ), '<p>', '<strong>', '</strong>', '</p>' );
+		printf( esc_html__( '%1$s%2$sKikote - Location Picker at Checkout for WooCommerce NOTICE:%3$s HTTPS not detected on this website. The plugin will not work. Please enable HTTPS on this website.%4$s', 'map-location-picker-at-checkout-for-woocommerce' ), '<p>', '<strong>', '</strong>', '</p>' );
 		?>
 		</div>
 		<?php
-
 	}
-
 }

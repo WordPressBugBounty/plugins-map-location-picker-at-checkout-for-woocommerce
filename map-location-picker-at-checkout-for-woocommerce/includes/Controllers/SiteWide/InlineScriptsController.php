@@ -72,5 +72,4 @@ class InlineScriptsController {
 			"console.log('Kikote - Location Picker at Checkout for WooCommerce {$plugin_type}: v{$pluginVersion}');"
 		);
 	}
-
 }

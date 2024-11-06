@@ -44,7 +44,7 @@ class Utilities {
 	 * @since 1.5.2
 	 * @since 1.6.3 Cast param to float instead of integer.
 	 */
-	public static function getMilesFromKilometers( float $km ) : float {
+	public static function getMilesFromKilometers( float $km ): float {
 		$miles_conversion = apply_filters( 'lpac_distance_matrix_miles_conversion_rate', 0.621371 );
 		return (float) $km * $miles_conversion;
 	}

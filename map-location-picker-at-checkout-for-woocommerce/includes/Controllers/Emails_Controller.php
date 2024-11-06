@@ -36,7 +36,7 @@ class Emails_Controller {
 	 * @since    1.1.0
 	 * @return void
 	 */
-	public function add_delivery_location_link_to_email( WC_Order $order, $sent_to_admin, $plain_text, $email ) : void {
+	public function add_delivery_location_link_to_email( WC_Order $order, $sent_to_admin, $plain_text, $email ): void {
 
 		$allowed_emails = get_option( 'lpac_email_delivery_map_emails', array() );
 
@@ -77,7 +77,6 @@ class Emails_Controller {
 		} else {
 			$this->create_delivery_location_link_button( $map_link );
 		}
-
 	}
 
 	/**
@@ -259,5 +258,4 @@ class Emails_Controller {
 		<br/>
 		<?php
 	}
-
 }

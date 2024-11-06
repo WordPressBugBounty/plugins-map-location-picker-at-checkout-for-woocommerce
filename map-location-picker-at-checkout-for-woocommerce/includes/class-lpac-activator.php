@@ -51,7 +51,5 @@ class Lpac_Activator {
 		if ( empty( $installed_at ) ) {
 			add_option( 'lpac_installed_at_version', LPAC_VERSION, '' );
 		}
-
 	}
-
 }

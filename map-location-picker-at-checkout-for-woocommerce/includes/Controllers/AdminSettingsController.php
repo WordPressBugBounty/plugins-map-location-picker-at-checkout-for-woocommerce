@@ -20,9 +20,8 @@ class AdminSettingsController {
 	/**
 	 * Sanitizes coordinates before saving.
 	 *
-	 * @param string $values
-	 * @param array  $option
-	 * @param string $raw_value
+	 * @param $value
+	 *
 	 * @return string
 	 */
 	public function normalizeCoordinates( $value ) {
@@ -33,18 +32,17 @@ class AdminSettingsController {
 		$value = trim( $value, ' ,' ); // Remove spaces or commas infront and after value
 
 		return $value;
-
 	}
 
 	/**
 	 * Generate a store ID for store locations and sanitize fields.
 	 *
 	 * @param array $values
-	 * @param array $option
-	 * @param array $raw_value
+	 *
 	 * @return array
+	 * @throws \Freemius_Exception
 	 */
-	public function normalizeStoreLocationsSettings( array $values ) : array {
+	public function normalizeStoreLocationsSettings( array $values ): array {
 
 		foreach ( $values as $key => &$store_details ) {
 
@@ -74,9 +72,7 @@ class AdminSettingsController {
 
 		unset( $store_details );
 
-		$values = array_unique( $values, SORT_REGULAR );
-
-		return $values;
+		return array_unique( $values, SORT_REGULAR );
 	}
 
 	/**
@@ -90,7 +86,7 @@ class AdminSettingsController {
 	 * @return array
 	 * @since 1.6.9
 	 */
-	public function normalize_cost_by_distance_range_checkbox( array $ranges, array $option, array $raw_value ) : array {
+	public function normalize_cost_by_distance_range_checkbox( array $ranges, array $option, array $raw_value ): array {
 
 		foreach ( $ranges as $key => &$range_details ) {
 
@@ -110,5 +106,4 @@ class AdminSettingsController {
 
 		return $ranges;
 	}
-
 }

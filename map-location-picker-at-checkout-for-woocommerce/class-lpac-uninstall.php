@@ -189,7 +189,5 @@ class Lpac_Uninstall {
 		$lpac_directory = wp_upload_dir()['basedir'] . '/lpac';
 
 		( new WP_Filesystem_Direct( '' ) )->delete( $lpac_directory, true, 'd' );
-
 	}
-
 }

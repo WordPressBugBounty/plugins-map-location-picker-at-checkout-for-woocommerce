@@ -77,7 +77,7 @@ class Location_Details {
 	 * @param float    $long
 	 * @return WC_Order
 	 */
-	public function save_order_meta_cords( WC_Order $order, float $lat, float $long ) : WC_Order {
+	public function save_order_meta_cords( WC_Order $order, float $lat, float $long ): WC_Order {
 
 		if ( empty( $lat ) || empty( $long ) ) {
 			return $order;
@@ -97,7 +97,7 @@ class Location_Details {
 	 * @param array    $data
 	 * @return WC_Order
 	 */
-	private function save_places_autocomplete( WC_Order $order, array $data ) : WC_Order {
+	private function save_places_autocomplete( WC_Order $order, array $data ): WC_Order {
 		$places_autocomplete_used = $_POST['lpac_places_autocomplete'] ?? '';
 		$order->add_meta_data( '_lpac_places_autocomplete', sanitize_text_field( $places_autocomplete_used ) );
 		return $order;
@@ -110,7 +110,7 @@ class Location_Details {
 	 * @param array    $post_data
 	 * @return WC_Order
 	 */
-	private function save_order_fulfillment_origin( WC_Order $order, array $post_data ) : WC_Order {
+	private function save_order_fulfillment_origin( WC_Order $order, array $post_data ): WC_Order {
 		$store_origin_id = $post_data['lpac_order__origin_store'] ?? '';
 
 		if ( empty( $store_origin_id ) ) {
@@ -135,5 +135,4 @@ class Location_Details {
 
 		return $order;
 	}
-
 }

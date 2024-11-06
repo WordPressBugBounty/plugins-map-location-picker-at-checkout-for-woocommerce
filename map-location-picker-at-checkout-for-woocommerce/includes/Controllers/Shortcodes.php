@@ -27,7 +27,7 @@ class Shortcodes {
 	 *
 	 * @return void
 	 */
-	public function saveSelectedStoreLocation() : void {
+	public function saveSelectedStoreLocation(): void {
 
 		$store_id = $_REQUEST['store_location_id'] ?? '';
 		$store_id = sanitize_text_field( $store_id );
@@ -40,5 +40,4 @@ class Shortcodes {
 
 		wp_send_json_success();
 	}
-
 }

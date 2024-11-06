@@ -112,7 +112,5 @@ class Controller {
 			'store_origin_id'          => $store_origin_id,
 			'used_places_autocomplete' => $autocomplete_used,
 		);
-
 	}
-
 }

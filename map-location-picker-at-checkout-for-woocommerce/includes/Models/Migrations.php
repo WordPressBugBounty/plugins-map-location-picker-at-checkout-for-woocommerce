@@ -55,7 +55,7 @@ class Migrations {
 	 * @since 1.6.2
 	 * @return void
 	 */
-	public function add_address_field_to_store_locations() : void {
+	public function add_address_field_to_store_locations(): void {
 
 		if ( version_compare( $this->installed_at, '1.6.2', '>=' ) ) {
 			return;
@@ -92,7 +92,7 @@ class Migrations {
 	 * @return void
 	 * @since 1.6.9
 	 */
-	public function add_should_calculate_per_distance_unit_field() : void {
+	public function add_should_calculate_per_distance_unit_field(): void {
 
 		if ( version_compare( $this->installed_at, '1.6.9', '>=' ) ) {
 			return;
@@ -156,7 +156,6 @@ class Migrations {
 			update_option( 'lpac_enable_cost_by_distance_standard', 'yes' );
 		}
 		update_option( 'lpac_migrated__cost_by_distance_standard', true );
-
 	}
 
 	/**
@@ -221,5 +220,4 @@ class Migrations {
 		update_option( 'lpac_store_locations', $current_store_locations );
 		update_option( 'kikote_migrated__store_locations_shipping_method', true );
 	}
-
 }

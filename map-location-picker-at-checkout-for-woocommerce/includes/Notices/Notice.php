@@ -54,7 +54,6 @@ class Notice {
 		$nonce = wp_create_nonce( 'lpac_notice_nonce_value' );
 
 		return admin_url( 'admin-ajax.php?action=lpac_dismiss_notice&lpac_notice_id=' . $notice_id . '&lpac_notice_nonce=' . $nonce );
-
 	}
 
 	/**
@@ -155,5 +154,4 @@ class Notice {
 
 		return;
 	}
-
 }
