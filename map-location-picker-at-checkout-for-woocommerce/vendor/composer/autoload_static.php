@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit8140b59f29551cb511efdbcac01103c3
 {
     public static $files = array (
+        '8d50dc88e56bace65e1e72f6017983ed' => __DIR__ . '/..' . '/freemius/wordpress-sdk/start.php',
         '174f5545298fc44fc2ee140f23d4bfef' => __DIR__ . '/..' . '/wpbp/pointerplus/pointerplus.php',
     );
 
@@ -243,6 +244,8 @@ class ComposerStaticInit8140b59f29551cb511efdbcac01103c3
         'Lpac\\Helpers\\Functions' => __DIR__ . '/../..' . '/includes/Helpers/Functions.php',
         'Lpac\\Helpers\\QR_Code_Generator' => __DIR__ . '/../..' . '/includes/Helpers/QR_Code_Generator.php',
         'Lpac\\Helpers\\Utilities' => __DIR__ . '/../..' . '/includes/Helpers/Utilities.php',
+        'Lpac\\KikoteActivator' => __DIR__ . '/../..' . '/includes/KikoteActivator.php',
+        'Lpac\\KikoteDeactivator' => __DIR__ . '/../..' . '/includes/KikoteDeactivator.php',
         'Lpac\\Models\\Base_Model' => __DIR__ . '/../..' . '/includes/Models/Base_Model.php',
         'Lpac\\Models\\Location_Details' => __DIR__ . '/../..' . '/includes/Models/Location_Details.php',
         'Lpac\\Models\\Migrations' => __DIR__ . '/../..' . '/includes/Models/Migrations.php',

@@ -195,6 +195,8 @@ return array(
     'Lpac\\Helpers\\Functions' => $baseDir . '/includes/Helpers/Functions.php',
     'Lpac\\Helpers\\QR_Code_Generator' => $baseDir . '/includes/Helpers/QR_Code_Generator.php',
     'Lpac\\Helpers\\Utilities' => $baseDir . '/includes/Helpers/Utilities.php',
+    'Lpac\\KikoteActivator' => $baseDir . '/includes/KikoteActivator.php',
+    'Lpac\\KikoteDeactivator' => $baseDir . '/includes/KikoteDeactivator.php',
     'Lpac\\Models\\Base_Model' => $baseDir . '/includes/Models/Base_Model.php',
     'Lpac\\Models\\Location_Details' => $baseDir . '/includes/Models/Location_Details.php',
     'Lpac\\Models\\Migrations' => $baseDir . '/includes/Models/Migrations.php',

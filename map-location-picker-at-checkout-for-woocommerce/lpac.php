@@ -12,7 +12,7 @@
  * Plugin Name:       Kikote - Location Picker at Checkout for WooCommerce
  * Plugin URI:        https://lpacwp.com
  * Description:       Allow customers to choose their shipping or pickup location using a map at checkout.
- * Version:           1.10.5
+ * Version:           1.10.6
  * Requires at least: 5.7
  * Author:            Uriahs Victor
  * Author URI:        https://lpacwp.com
@@ -21,7 +21,7 @@
  * Text Domain:       map-location-picker-at-checkout-for-woocommerce
  * Domain Path:       /languages
  * WC requires at least: 5.5
- * WC tested up to: 9.4
+ * WC tested up to: 9.5
  * Requires Plugins: woocommerce
  * Requires PHP: 7.4
  */
@@ -30,7 +30,7 @@ if ( !defined( 'WPINC' ) ) {
     die;
 }
 if ( !defined( 'LPAC_VERSION' ) ) {
-    define( 'LPAC_VERSION', '1.10.5' );
+    define( 'LPAC_VERSION', '1.10.6' );
 }
 /**
  * Check PHP version
@@ -168,7 +168,7 @@ if ( function_exists( 'lpac_fs' ) ) {
     require_once __DIR__ . '/vendor/autoload.php';
     /**
      * The code that runs during plugin activation.
-     * This action is documented in includes/class-lpac-activator.php
+     * This action is documented in includes/KikoteActivator.php
      */
     if ( !function_exists( 'activate_lpac' ) ) {
         /**
@@ -178,14 +178,14 @@ if ( function_exists( 'lpac_fs' ) ) {
          * @since 1.0.0
          */
         function activate_lpac() {
-            require_once plugin_dir_path( __FILE__ ) . 'includes/class-lpac-activator.php';
-            Lpac_Activator::activate();
+            require_once plugin_dir_path( __FILE__ ) . 'includes/KikoteActivator.php';
+            \Lpac\KikoteActivator::activate();
         }
 
     }
     /**
      * The code that runs during plugin deactivation.
-     * This action is documented in includes/class-lpac-deactivator.php
+     * This action is documented in includes/KikoteDeactivator.php
      */
     if ( !function_exists( 'deactivate_lpac' ) ) {
         /**
@@ -195,8 +195,8 @@ if ( function_exists( 'lpac_fs' ) ) {
          * @since 1.0.0
          */
         function deactivate_lpac() {
-            require_once plugin_dir_path( __FILE__ ) . 'includes/class-lpac-deactivator.php';
-            Lpac_Deactivator::deactivate();
+            require_once plugin_dir_path( __FILE__ ) . 'includes/KikoteDeactivator.php';
+            \Lpac\KikoteDeactivator::deactivate();
         }
 
     }
