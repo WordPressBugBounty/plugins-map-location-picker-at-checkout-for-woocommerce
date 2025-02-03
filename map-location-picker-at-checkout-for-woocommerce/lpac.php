@@ -12,7 +12,7 @@
  * Plugin Name:       Kikote - Location Picker at Checkout for WooCommerce
  * Plugin URI:        https://lpacwp.com
  * Description:       Allow customers to choose their shipping or pickup location using a map at checkout.
- * Version:           1.10.6
+ * Version:           1.10.7
  * Requires at least: 5.7
  * Author:            Uriahs Victor
  * Author URI:        https://lpacwp.com
@@ -21,7 +21,7 @@
  * Text Domain:       map-location-picker-at-checkout-for-woocommerce
  * Domain Path:       /languages
  * WC requires at least: 5.5
- * WC tested up to: 9.5
+ * WC tested up to: 9.6
  * Requires Plugins: woocommerce
  * Requires PHP: 7.4
  */
@@ -30,7 +30,7 @@ if ( !defined( 'WPINC' ) ) {
     die;
 }
 if ( !defined( 'LPAC_VERSION' ) ) {
-    define( 'LPAC_VERSION', '1.10.6' );
+    define( 'LPAC_VERSION', '1.10.7' );
 }
 /**
  * Check PHP version
@@ -120,7 +120,7 @@ if ( function_exists( 'lpac_fs' ) ) {
             global $lpac_fs;
             if ( !isset( $lpac_fs ) ) {
                 // Include Freemius SDK.
-                require_once __DIR__ . '/vendor/freemius/wordpress-sdk/start.php';
+                require_once __DIR__ . '/vendor/freemius/wordpress-sdk/wordpress-sdk-2.11.0/start.php';
                 $lpac_fs = fs_dynamic_init( array(
                     'id'              => '8507',
                     'slug'            => 'map-location-picker-at-checkout-for-woocommerce',

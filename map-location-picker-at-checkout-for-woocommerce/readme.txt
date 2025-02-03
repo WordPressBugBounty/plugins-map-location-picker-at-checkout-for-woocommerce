@@ -4,7 +4,7 @@ Tags: woocommerce, location picker, checkout map, geolocation, google map
 Requires at least: 5.5
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.10.6
+Stable tag: 1.10.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -279,6 +279,11 @@ Post it on the [support forum](https://wordpress.org/support/plugin/map-location
 Always take a backup before updating your plugins!
 
 == Changelog ==
+
+= 1.10.7 (2025-02-03) =
+* [Fix PRO] Issue where shipping restrictions was not working correctly for Cost by Region feature.
+* [Dev] Updated Freemius SDK.
+* [Info] Tested on WC 9.6.0-rc.1.
 
 = 1.10.6 (2025-01-06) =
 * [Fix PRO] Issue where Cost by Distance feature would try to use store selector cords even though dropdown was not present on checkout page.
