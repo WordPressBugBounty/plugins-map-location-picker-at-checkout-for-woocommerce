@@ -12,7 +12,7 @@
  * Plugin Name:       Kikote - Location Picker at Checkout for WooCommerce
  * Plugin URI:        https://lpacwp.com
  * Description:       Allow customers to choose their shipping or pickup location using a map at checkout.
- * Version:           1.10.7
+ * Version:           1.10.8
  * Requires at least: 5.7
  * Author:            Uriahs Victor
  * Author URI:        https://lpacwp.com
@@ -21,7 +21,7 @@
  * Text Domain:       map-location-picker-at-checkout-for-woocommerce
  * Domain Path:       /languages
  * WC requires at least: 5.5
- * WC tested up to: 9.6
+ * WC tested up to: 10.0
  * Requires Plugins: woocommerce
  * Requires PHP: 7.4
  */
@@ -30,7 +30,7 @@ if ( !defined( 'WPINC' ) ) {
     die;
 }
 if ( !defined( 'LPAC_VERSION' ) ) {
-    define( 'LPAC_VERSION', '1.10.7' );
+    define( 'LPAC_VERSION', '1.10.8' );
 }
 /**
  * Check PHP version
@@ -120,7 +120,7 @@ if ( function_exists( 'lpac_fs' ) ) {
             global $lpac_fs;
             if ( !isset( $lpac_fs ) ) {
                 // Include Freemius SDK.
-                require_once __DIR__ . '/vendor/freemius/wordpress-sdk/wordpress-sdk-2.11.0/start.php';
+                require_once __DIR__ . '/vendor/freemius/wordpress-sdk/start.php';
                 $lpac_fs = fs_dynamic_init( array(
                     'id'              => '8507',
                     'slug'            => 'map-location-picker-at-checkout-for-woocommerce',
@@ -202,39 +202,6 @@ if ( function_exists( 'lpac_fs' ) ) {
     }
     register_activation_hook( __FILE__, 'activate_lpac' );
     register_deactivation_hook( __FILE__, 'deactivate_lpac' );
-    /**
-     * Map Builder
-     */
-    function lpac_redirect_to_map_builder() {
-        ?>
-			<h1><?php 
-        esc_html_e( 'Map Builder', 'map-location-picker-at-checkout-for-woocommerce' );
-        ?> (PRO)</h1>
-			<p style='font-size: 18px'><?php 
-        esc_html_e( 'Create custom maps showing your store locations and serviceable areas and add them anywhere on your website using a shortcode.', 'map-location-picker-at-checkout-for-woocommerce' );
-        ?> <a href='https://lpacwp.com/docs/map-builder/' target='_blank'><?php 
-        esc_html_e( 'Learn more', 'map-location-picker-at-checkout-for-woocommerce' );
-        ?> >></a></p>
-			<p><img src="<?php 
-        echo LPAC_PLUGIN_ASSETS_PATH_URL;
-        ?>img/map-builder.png" alt="kikote map builder screenshot" width='1000px'></p>
-		<?php 
-    }
-
-    if ( !defined( 'WP_FS__DEFAULT_PRIORITY' ) ) {
-        define( 'WP_FS__DEFAULT_PRIORITY', 10 );
-    }
-    lpac_fs()->add_submenu_item(
-        esc_html__( 'Map Builder', 'map-location-picker-at-checkout-for-woocommerce' ),
-        'lpac_redirect_to_map_builder',
-        $page_title = true,
-        $capability = 'manage_options',
-        $menu_slug = 'map-builder',
-        $before_render_function = false,
-        $priority = WP_FS__DEFAULT_PRIORITY,
-        $show_submenu = true,
-        $class = ''
-    );
     require __DIR__ . '/class-lpac-uninstall.php';
     require __DIR__ . '/admin-pointers.php';
     lpac_fs()->add_action( 'after_uninstall', array(new Lpac_Uninstall(), 'remove_plugin_settings') );
@@ -243,8 +210,8 @@ if ( function_exists( 'lpac_fs' ) ) {
         return __DIR__ . '/assets/img/logo.png';
     } );
     /**
-     * Constants
-     */
+    	Constants
+    */
     define( 'LPAC_BASE_FILE', basename( plugin_dir_path( __FILE__ ) ) );
     define( 'LPAC_PLUGIN_NAME', 'lpac' );
     define( 'LPAC_PLUGIN_DIR', __DIR__ . '/' );
@@ -313,5 +280,5 @@ if ( function_exists( 'lpac_fs' ) ) {
         }
 
     }
-    add_action( 'plugins_loaded', 'soaringleads_kikote_init' );
+    add_action( 'init', 'soaringleads_kikote_init' );
 }

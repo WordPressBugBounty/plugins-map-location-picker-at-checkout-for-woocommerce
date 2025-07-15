@@ -4,9 +4,10 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280
+class ComposerStaticInit993a252c6a799ab413a5a33aef64f5c5
 {
     public static $files = array (
+        '8d50dc88e56bace65e1e72f6017983ed' => __DIR__ . '/..' . '/freemius/wordpress-sdk/start.php',
         '174f5545298fc44fc2ee140f23d4bfef' => __DIR__ . '/..' . '/wpbp/pointerplus/pointerplus.php',
     );
 
@@ -241,6 +242,7 @@ class ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280
         'Lpac\\Controllers\\Shortcodes' => __DIR__ . '/../..' . '/includes/Controllers/Shortcodes.php',
         'Lpac\\Controllers\\SiteWide\\InlineScriptsController' => __DIR__ . '/../..' . '/includes/Controllers/SiteWide/InlineScriptsController.php',
         'Lpac\\Helpers\\Functions' => __DIR__ . '/../..' . '/includes/Helpers/Functions.php',
+        'Lpac\\Helpers\\Logger' => __DIR__ . '/../..' . '/includes/Helpers/Logger.php',
         'Lpac\\Helpers\\QR_Code_Generator' => __DIR__ . '/../..' . '/includes/Helpers/QR_Code_Generator.php',
         'Lpac\\Helpers\\Utilities' => __DIR__ . '/../..' . '/includes/Helpers/Utilities.php',
         'Lpac\\KikoteActivator' => __DIR__ . '/../..' . '/includes/KikoteActivator.php',
@@ -257,7 +259,7 @@ class ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280
         'Lpac\\Notices\\Review_Notices' => __DIR__ . '/../..' . '/includes/Notices/Review_Notices.php',
         'Lpac\\Notices\\Upsells_Notices' => __DIR__ . '/../..' . '/includes/Notices/Upsells_Notices.php',
         'Lpac\\Pro\\Controllers\\AdminSettingsController' => __DIR__ . '/../..' . '/includes/Pro/Controllers/AdminSettingsController.php',
-        'Lpac\\Pro\\Controllers\\Admin\\Custom_Post_Types' => __DIR__ . '/../..' . '/includes/Pro/Controllers/Admin/Custom_Post_Types.php',
+        'Lpac\\Pro\\Controllers\\Admin\\CustomPostTypes' => __DIR__ . '/../..' . '/includes/Pro/Controllers/Admin/CustomPostTypes.php',
         'Lpac\\Pro\\Controllers\\Checkout_Page\\Controller' => __DIR__ . '/../..' . '/includes/Pro/Controllers/Checkout_Page/Controller.php',
         'Lpac\\Pro\\Controllers\\Checkout_Page\\StoreLocations\\ShippingMethods' => __DIR__ . '/../..' . '/includes/Pro/Controllers/Checkout_Page/StoreLocations/ShippingMethods.php',
         'Lpac\\Pro\\Controllers\\Checkout_Page\\Validate' => __DIR__ . '/../..' . '/includes/Pro/Controllers/Checkout_Page/Validate.php',
@@ -269,7 +271,7 @@ class ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280
         'Lpac\\Pro\\Controllers\\Shipping\\SetupSession' => __DIR__ . '/../..' . '/includes/Pro/Controllers/Shipping/SetupSession.php',
         'Lpac\\Pro\\Controllers\\WooCommerce_Account' => __DIR__ . '/../..' . '/includes/Pro/Controllers/WooCommerce_Account.php',
         'Lpac\\Pro\\Helpers\\Functions' => __DIR__ . '/../..' . '/includes/Pro/Helpers/Functions.php',
-        'Lpac\\Pro\\Models\\Admin\\Custom_Post_Types\\Map_Builder' => __DIR__ . '/../..' . '/includes/Pro/Models/Admin/Custom_Post_Types/Map_Builder.php',
+        'Lpac\\Pro\\Models\\Admin\\CustomPostTypes\\Map_Builder' => __DIR__ . '/../..' . '/includes/Pro/Models/Admin/CustomPostTypes/Map_Builder.php',
         'Lpac\\Pro\\Models\\Draw_Shipping_Region' => __DIR__ . '/../..' . '/includes/Pro/Models/Draw_Shipping_Region.php',
         'Lpac\\Pro\\Models\\Export_Orders' => __DIR__ . '/../..' . '/includes/Pro/Models/Export_Orders.php',
         'Lpac\\Pro\\Models\\Location_Details' => __DIR__ . '/../..' . '/includes/Pro/Models/Location_Details.php',
@@ -281,7 +283,7 @@ class ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280
         'Lpac\\Pro\\Models\\WooCommerce_Account' => __DIR__ . '/../..' . '/includes/Pro/Models/WooCommerce_Account.php',
         'Lpac\\Pro\\Views\\Admin\\Admin' => __DIR__ . '/../..' . '/includes/Pro/Views/Admin/Admin.php',
         'Lpac\\Pro\\Views\\Admin\\Admin_Settings' => __DIR__ . '/../..' . '/includes/Pro/Views/Admin/Admin_Settings.php',
-        'Lpac\\Pro\\Views\\Admin\\Custom_Post_Types\\Map_Builder' => __DIR__ . '/../..' . '/includes/Pro/Views/Admin/Custom_Post_Types/Map_Builder.php',
+        'Lpac\\Pro\\Views\\Admin\\CustomPostTypes\\Map_Builder' => __DIR__ . '/../..' . '/includes/Pro/Views/Admin/CustomPostTypes/Map_Builder.php',
         'Lpac\\Pro\\Views\\Frontend\\Frontend' => __DIR__ . '/../..' . '/includes/Pro/Views/Frontend/Frontend.php',
         'Lpac\\Pro\\Views\\Frontend\\Shortcodes' => __DIR__ . '/../..' . '/includes/Pro/Views/Frontend/Shortcodes.php',
         'Lpac\\Pro\\Views\\Frontend\\WooCommerce_Account' => __DIR__ . '/../..' . '/includes/Pro/Views/Frontend/WooCommerce_Account.php',
@@ -297,9 +299,9 @@ class ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitea9c3eb69d13a1006742c9d43d20d280::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit993a252c6a799ab413a5a33aef64f5c5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit993a252c6a799ab413a5a33aef64f5c5::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit993a252c6a799ab413a5a33aef64f5c5::$classMap;
 
         }, null, ClassLoader::class);
     }

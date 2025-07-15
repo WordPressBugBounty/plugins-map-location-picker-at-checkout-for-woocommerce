@@ -86,7 +86,7 @@ class QR_Code_Generator {
 		// Its possible to add logo to QR code.
 		$result = $writer->write( $qr_code );
 
-		$image = $result->saveToFile( $path_with_filename );
+		$result->saveToFile( $path_with_filename );
 
 		// Doesn't work in email clients like Gmail
 		// $image_base64 = $result->getDataUri();

@@ -486,7 +486,7 @@ JAVASCRIPT;
      *
      * @return void
      */
-    public function createFrontendTranslatedStrings() {
+    public function createFrontendTranslatedStrings() : void {
         $strings = array(
             'geolocation_not_supported'  => __( 'Geolocation is not possible on this web browser. Please switch to a different web browser to use our interactive map.', 'map-location-picker-at-checkout-for-woocommerce' ),
             'manually_select_location'   => __( 'Please select your location manually by clicking on the map then moving the marker to your desired location.', 'map-location-picker-at-checkout-for-woocommerce' ),

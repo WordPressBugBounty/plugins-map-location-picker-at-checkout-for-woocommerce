@@ -37,6 +37,7 @@ use Lpac\Controllers\AdminSettingsController;
 use Lpac\Controllers\Checkout_Page\Validate as Checkout_Page_Validation;
 use Lpac\Controllers\Shortcodes as Shortcodes_Controller;
 use Lpac\Helpers\Functions as FunctionsHelper;
+use Lpac\Helpers\Logger;
 use Lpac\Notices\Admin as Admin_Notices;
 use Lpac\Notices\Notice;
 use Lpac\Notices\Loader as Notices_Loader;
@@ -150,6 +151,32 @@ class Main {
     private function set_locale() {
         $plugin_i18n = new I18n();
         $this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+    }
+
+    /**
+     * Redirect the user to the map builder page when they click the sub menu item.
+     *
+     * @return void
+     * @since 1.10.8
+     */
+    public function redirectToMapBuilder() {
+        try {
+        } catch ( \Exception $e ) {
+            ( new Logger() )->logCritical( $e->getMessage() );
+        }
+        ?>
+		<h1><?php 
+        esc_html_e( 'Map Builder', 'map-location-picker-at-checkout-for-woocommerce' );
+        ?> (PRO)</h1>
+		<p style='font-size: 18px'><?php 
+        esc_html_e( 'Create custom maps showing your store locations and serviceable areas and add them anywhere on your website using a shortcode.', 'map-location-picker-at-checkout-for-woocommerce' );
+        ?> <a href='https://lpacwp.com/docs/map-builder/' target='_blank'><?php 
+        esc_html_e( 'Learn more', 'map-location-picker-at-checkout-for-woocommerce' );
+        ?> >></a></p>
+		<p><img src="<?php 
+        echo LPAC_PLUGIN_ASSETS_PATH_URL;
+        ?>img/map-builder.png" alt="kikote map builder screenshot" width='1000px'></p>
+		<?php 
     }
 
     /**
