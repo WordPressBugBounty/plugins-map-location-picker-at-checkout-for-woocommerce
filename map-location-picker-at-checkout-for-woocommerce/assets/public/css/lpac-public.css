@@ -21,7 +21,7 @@
   margin: 20px 0;
 }
 
-.hidden {
+body .hidden {
   display: none !important;
 }
 

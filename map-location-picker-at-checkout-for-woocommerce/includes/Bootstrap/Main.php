@@ -511,6 +511,7 @@ class Main {
             $new_actions['lpac_wc_settings'] = sprintf( __( '<a href="%s">Settings</a>', 'map-location-picker-at-checkout-for-woocommerce' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=lpac_settings' ) ) );
             if ( !defined( 'LPAC_PLUGIN_PATH_URL_PRO' ) ) {
                 $new_actions['lpac_upgrade_link'] = sprintf( __( '%1$sCheck out PRO%2$s', 'map-location-picker-at-checkout-for-woocommerce' ), '<a style="color: green; font-weight: bold" href="https://lpacwp.com/pricing?utm_source=plugin_actions_links&utm_medium=wp_plugins_area" target="_blank">', '</a>' );
+                $new_actions['kikote_pro_demo_link'] = sprintf( __( '%1$sLaunch PRO Demo%2$s', 'map-location-picker-at-checkout-for-woocommerce' ), '<a style="font-weight: bold" href="https://app.instawp.io/launch?t=lpac" target="_blank">', '</a>' );
             }
         }
         return array_merge( $plugin_actions, $new_actions );

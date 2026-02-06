@@ -3,8 +3,8 @@ Contributors: uriahs-victor
 Tags: woocommerce, location picker, checkout map, geolocation, google map
 Requires at least: 5.5
 Requires PHP: 7.4
-Tested up to: 6.8
-Stable tag: 1.10.8
+Tested up to: 6.9
+Stable tag: 1.10.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -279,6 +279,11 @@ Post it on the [support forum](https://wordpress.org/support/plugin/map-location
 Always take a backup before updating your plugins!
 
 == Changelog ==
+
+= 1.10.9 (2026-01-06) =
+* [Improvement] Add launch PRO demo plugin link.
+* [Info] Tested on WP 6.9.
+* [Info] Tested on WC 10.4.
 
 = 1.10.8 (2025-07-15) =
 * [Dev PRO] Add filters `kikote_cost_by_store_location_shipping_rate`, `kikote_cost_by_region_shipping_rate`, `kikote_cost_by_store_distance_shipping_rate` and `kikote_cost_by_distance_range_shipping_rate` for dynamically adjusting checkout shipping costs after Kikote has run its logic.
