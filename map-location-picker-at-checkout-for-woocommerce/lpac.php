@@ -12,7 +12,7 @@
  * Plugin Name:       Kikote - Location Picker at Checkout for WooCommerce
  * Plugin URI:        https://lpacwp.com
  * Description:       Allow customers to choose their shipping or pickup location using a map at checkout.
- * Version:          1.10.9
+ * Version:          1.10.10
  * Requires at least: 5.7
  * Author:            Uriahs Victor
  * Author URI:        https://lpacwp.com
@@ -21,7 +21,7 @@
  * Text Domain:       map-location-picker-at-checkout-for-woocommerce
  * Domain Path:       /languages
  * WC requires at least: 5.5
- * WC tested up to: 10.4
+ * WC tested up to: 10.5
  * Requires Plugins: woocommerce
  * Requires PHP: 7.4
  */
@@ -30,7 +30,7 @@ if ( !defined( 'WPINC' ) ) {
     die;
 }
 if ( !defined( 'LPAC_VERSION' ) ) {
-    define( 'LPAC_VERSION', '1.10.9' );
+    define( 'LPAC_VERSION', '1.10.10' );
 }
 /**
  * Check PHP version
@@ -122,28 +122,29 @@ if ( function_exists( 'lpac_fs' ) ) {
                 // Include Freemius SDK.
                 require_once __DIR__ . '/vendor/freemius/wordpress-sdk/start.php';
                 $lpac_fs = fs_dynamic_init( array(
-                    'id'              => '8507',
-                    'slug'            => 'map-location-picker-at-checkout-for-woocommerce',
-                    'premium_slug'    => 'map-location-picker-at-checkout-for-woocommerce-pro',
-                    'type'            => 'plugin',
-                    'public_key'      => 'pk_da07de47a2bdd9391af9020cc646d',
-                    'is_premium'      => false,
-                    'premium_suffix'  => 'PRO',
-                    'has_addons'      => false,
-                    'has_paid_plans'  => true,
-                    'trial'           => array(
+                    'id'               => '8507',
+                    'slug'             => 'map-location-picker-at-checkout-for-woocommerce',
+                    'premium_slug'     => 'map-location-picker-at-checkout-for-woocommerce-pro',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_da07de47a2bdd9391af9020cc646d',
+                    'is_premium'       => false,
+                    'premium_suffix'   => 'PRO',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'trial'            => array(
                         'days'               => 14,
                         'is_require_payment' => true,
                     ),
-                    'contact'         => true,
-                    'has_affiliation' => 'selected',
-                    'menu'            => array(
+                    'contact'          => true,
+                    'has_affiliation'  => 'selected',
+                    'menu'             => array(
                         'slug'   => 'lpac-menu',
                         'parent' => array(
                             'slug' => 'sl-plugins-menu',
                         ),
                     ),
-                    'is_live'         => true,
+                    'is_live'          => true,
+                    'is_org_compliant' => true,
                 ) );
             }
             return $lpac_fs;
@@ -241,7 +242,10 @@ if ( function_exists( 'lpac_fs' ) ) {
             \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', __FILE__, false );
         }
     } );
-    $version = ( LPAC_DEBUG ? 'weekly' : 'quarterly' );
+    // $version       = ( LPAC_DEBUG ) ? 'weekly' : 'quarterly';
+    // TODO remove version lock when Drawing manager has been migrated.
+    // https://github.com/SoaringLeads/location-picker-at-checkout-for-woocommerce-pro/issues/467
+    $version = 3.64;
     $google_params = array("v={$version}");
     $libraries = array();
     $places_autocomplete = get_option( 'lpac_enable_places_autocomplete', 'no' );
