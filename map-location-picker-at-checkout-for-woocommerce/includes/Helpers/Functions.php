@@ -223,14 +223,14 @@ class Functions {
 	 *
 	 * @return array
 	 */
-	public static function set_map_options() {
+	public static function set_map_options(): array {
 
 		$starting_coordinates = get_option( 'lpac_map_starting_coordinates', '14.024519,-60.974876' );
 		$starting_coordinates = apply_filters( 'lpac_map_starting_coordinates', $starting_coordinates );
 
 		$coordinates_parts = explode( ',', $starting_coordinates );
-		$latitude          = ! empty( $coordinates_parts[0] ) ? (float) $coordinates_parts[0] : (float) 14.024519;
-		$longitude         = ! empty( $coordinates_parts[1] ) ? (float) $coordinates_parts[1] : (float) -60.974876;
+		$latitude          = ! empty( $coordinates_parts[0] ) ? (float) $coordinates_parts[0] : 14.024519;
+		$longitude         = ! empty( $coordinates_parts[1] ) ? (float) $coordinates_parts[1] : -60.974876;
 
 		$zoom_level = (int) get_option( 'lpac_general_map_zoom_level', 16 );
 		$zoom_level = apply_filters( 'lpac_general_map_zoom_level', $zoom_level );

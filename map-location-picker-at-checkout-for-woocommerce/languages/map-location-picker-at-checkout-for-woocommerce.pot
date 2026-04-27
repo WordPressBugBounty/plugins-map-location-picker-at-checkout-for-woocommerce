@@ -1518,13 +1518,13 @@ msgid "Order Total Beyond Limit Notice"
 msgstr ""
 
 #: includes/Views/Admin/Admin_Settings.php:1392
-#: includes/Pro/Controllers/Checkout_Page/Validate.php:192
+#: includes/Pro/Controllers/CheckoutPage/Validate.php:192
 #: includes/Pro/Views/Admin/Admin_Settings.php:483
 msgid "Order total for your selected region needs to be at least"
 msgstr ""
 
 #: includes/Views/Admin/Admin_Settings.php:1405
-#: includes/Pro/Controllers/Checkout_Page/Validate.php:200
+#: includes/Pro/Controllers/CheckoutPage/Validate.php:200
 #: includes/Pro/Views/Admin/Admin_Settings.php:492
 msgid "Order total for your selected region needs to be at most"
 msgstr ""
@@ -1587,9 +1587,9 @@ msgstr ""
 msgid "Please select a store location to deliver from"
 msgstr ""
 
-#: includes/Controllers/Checkout_Page/Validate.php:229
-#: includes/Pro/Controllers/Checkout_Page/Validate.php:70
-#: includes/Pro/Controllers/Checkout_Page/Validate.php:114
+#: includes/Controllers/CheckoutPage/Validate.php:229
+#: includes/Pro/Controllers/CheckoutPage/Validate.php:70
+#: includes/Pro/Controllers/CheckoutPage/Validate.php:114
 msgid "Please select the store location you would like to order from."
 msgstr ""
 
@@ -1599,7 +1599,7 @@ msgid ""
 "marker to your desired location."
 msgstr ""
 
-#: includes/Controllers/Checkout_Page/Validate.php:133
+#: includes/Controllers/CheckoutPage/Validate.php:133
 msgid "Please select your location using the Map."
 msgstr ""
 

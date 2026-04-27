@@ -55,4 +55,16 @@ class Store_Locations {
 		$value = get_option( 'lpac_enable_search_in_store_locations', false );
 		return filter_var( $value, FILTER_VALIDATE_BOOLEAN );
 	}
+
+	/**
+	 * Get the setting for "Store Selector Label" option.
+	 *
+	 * @return string
+	 * @since 1.11.0
+	 */
+	public static function getStoreSelectorLabelSetting(): string {
+		$label = get_option( 'lpac_store_select_label' ) ?: __( 'Deliver from', 'map-location-picker-at-checkout-for-woocommerce' );
+
+		return rtrim( rtrim( $label ), ':' ) . ':';
+	}
 }

@@ -114,7 +114,7 @@ class Frontend_Enqueues {
          */
         $map_resource = $this->lpac_google_maps_resource;
         // Make map language filterable and allow adding of extra params to the api link
-        $language = apply_filters( 'lpac_map_locale', get_locale() );
+        $language = apply_filters( 'kikote_locale', get_locale() );
         $additional_params = apply_filters( 'lpac_additional_map_params', array(), $map_resource );
         $language_param = array("language={$language}");
         $additional_params = array_merge( $language_param, $additional_params );

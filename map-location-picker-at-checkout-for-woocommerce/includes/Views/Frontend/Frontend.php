@@ -16,9 +16,10 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 use Lpac\Controllers\Map_Visibility_Controller;
-use Lpac\Controllers\Checkout_Page\Controller as Checkout_Page_Controller;
+use Lpac\Controllers\CheckoutPage\Controller as Checkout_Page_Controller;
 use Lpac\Compatibility\Checkout_Provider;
 use Lpac\Helpers\Functions;
+use Lpac\Models\Plugin_Settings\General_Settings;
 use Lpac\Models\Plugin_Settings\Store_Locations;
 class Frontend {
     /**
@@ -41,6 +42,15 @@ class Frontend {
         );
         $map_options = array_merge( $map_options, $additional );
         $map_options['fill_in_fields'] = apply_filters( 'lpac_fill_checkout_fields', true );
+        $map_options['locale'] = apply_filters( 'kikote_locale', explode( '_', get_locale() )[0] ?? 'en' );
+        $default_places_autocomplete_label = get_option( 'lpac_places_autocomplete_field_label', __( 'Search Address', 'map-location-picker-at-checkout-for-woocommerce' ) );
+        $map_options['places_autocomplete_field_label'] = apply_filters( 'kikote_places_autocomplete_field_label', $default_places_autocomplete_label );
+        $map_options['places_autocomplete_search_box_placeholder'] = apply_filters( 'kikote_places_autocomplete_search_box_placeholder', __( 'Start typing...', 'map-location-picker-at-checkout-for-woocommerce' ) );
+        if ( General_Settings::getUseNewPlacesAutocompleteSetting() === true || version_compare( get_option( 'lpac_installed_at_version' ), 1.11, '>=' ) ) {
+            $map_options['places_autocomplete_use_new_api'] = apply_filters( 'kikote_use_new_places_autocomplete_api', true );
+        } else {
+            $map_options['places_autocomplete_use_new_api'] = apply_filters( 'kikote_use_new_places_autocomplete_api', false );
+        }
         $map_options['places_address_components_mappings'] = apply_filters( 'places_address_components_mappings', array(
             'country'     => 'country',
             'townCity1'   => 'locality',
@@ -112,16 +122,6 @@ JAVASCRIPT;
     }
 
     /**
-     * Get the setting for store selector label
-     *
-     * @since 1.6.0
-     * @return string
-     */
-    private function get_store_selector_label_setting() {
-        return ( get_option( 'lpac_store_select_label' ) ?: __( 'Deliver from', 'map-location-picker-at-checkout-for-woocommerce' ) );
-    }
-
-    /**
      * Create the store selector field if the option is turned on in "Store Locations".
      *
      * @since 1.6.0
@@ -138,7 +138,7 @@ JAVASCRIPT;
             ), $this->get_normalized_store_locations() );
             woocommerce_form_field( 'lpac_order__origin_store', array(
                 'type'     => 'select',
-                'label'    => $this->get_store_selector_label_setting(),
+                'label'    => Store_Locations::getStoreSelectorLabelSetting(),
                 'required' => true,
                 'class'    => array('form-row-wide', 'hidden'),
                 'options'  => $store_locations,
@@ -211,10 +211,8 @@ JAVASCRIPT;
             $instructions_text = esc_html__( 'Click the "Detect Current Location" button then move the red marker to your desired shipping address.', 'map-location-picker-at-checkout-for-woocommerce' );
         }
         $instructions_text = apply_filters( 'lpac_map_instuctions_text', $instructions_text );
-        $user_id = (int) get_current_user_id();
+        $user_id = get_current_user_id();
         do_action( 'lpac_before_checkout_map_container', '', $user_id );
-        ?>
-		<?php 
         ?>
 		<div style='display: <?php 
         echo esc_attr( $display );
@@ -497,6 +495,31 @@ JAVASCRIPT;
         );
         $strings = apply_filters( 'kikote_frontend_translated_strings', $strings );
         wp_localize_script( 'lpac-checkout-page-map', 'lpacTranslatedJsStrings', $strings );
+    }
+
+    /**
+     * Hide Billing and Shipping Address 1 field by turning them to hidden input types.
+     *
+     * This is done so that we can make use of the NEW Google Places Autocomplete widget effectively.
+     *
+     * @param $fields
+     *
+     * @return array
+     * @since 2.0.0
+     */
+    public function hideBillingAndShippingAddress1Fields( $fields ) : array {
+        if ( General_Settings::isPlacesAutoCompleteEnabled() === false ) {
+            return $fields;
+        }
+        $autocomplete_fields = General_Settings::getPlacesAutocompleteFields();
+        $one_point_eleven_or_higher = version_compare( get_option( 'lpac_installed_at_version' ), 1.11, '>=' );
+        if ( LPAC_DEBUG === false && General_Settings::getUseNewPlacesAutocompleteSetting() === true && in_array( 'billing_address_1', $autocomplete_fields ) || $one_point_eleven_or_higher === true ) {
+            $fields['billing']['billing_address_1']['class'][] = 'hidden';
+        }
+        if ( LPAC_DEBUG === false && General_Settings::getUseNewPlacesAutocompleteSetting() === true && in_array( 'shipping_address_1', $autocomplete_fields ) || $one_point_eleven_or_higher === true ) {
+            $fields['shipping']['shipping_address_1']['class'][] = 'hidden';
+        }
+        return $fields;
     }
 
 }

@@ -363,6 +363,28 @@ HTML;
             'type'     => 'checkbox',
             'css'      => 'min-width:300px;',
         );
+        // In v1.11.0 we introduced Places autocomplete new. While allowing older sites to still use the old places autocomplete.
+        if ( version_compare( get_option( 'lpac_installed_at_version' ), 1.11, '<' ) ) {
+            $lpac_settings[] = array(
+                'name'     => __( 'Use Places Autocomplete (New)', 'map-location-picker-at-checkout-for-woocommerce' ),
+                'desc_tip' => sprintf( __( "Enable this option to make use of Google's new Places Autocomplete API (recommended). If this option is disabled then Kikote will use the older deprecated Places Autocomplete. You will also have to update your API key if you enable this option.  %s", 'map-location-picker-at-checkout-for-woocommerce' ), "<a href='https://lpacwp.com/docs/places-autocomplete-new-feature-google-address-autofill/?utm_source=generaltab&utm_medium=lpacdashboard&utm_campaign=freedocs' target='blank'>" . self::$learn_more . '</a>' ),
+                'desc'     => __( 'Yes', 'map-location-picker-at-checkout-for-woocommerce' ),
+                'id'       => 'lpac_use_new_places_autocomplete_api',
+                'type'     => 'checkbox',
+                'css'      => 'min-width:300px;',
+            );
+        }
+        // In v1.11.0 and higher show the label customization field.
+        if ( version_compare( get_option( 'lpac_installed_at_version' ), 1.11, '>=' ) ) {
+            $lpac_settings[] = array(
+                'name'    => __( 'Search Field Label', 'map-location-picker-at-checkout-for-woocommerce' ),
+                'desc'    => __( 'Enter the text to use for the search field.', 'map-location-picker-at-checkout-for-woocommerce' ),
+                'id'      => 'lpac_places_autocomplete_field_label',
+                'type'    => 'text',
+                'css'     => 'min-width:300px;',
+                'default' => 'Search Address',
+            );
+        }
         $lpac_settings[] = array(
             'name'     => __( 'Force use of Autocomplete feature', 'map-location-picker-at-checkout-for-woocommerce' ),
             'desc_tip' => sprintf( __( 'Prevent customers from checking out unless they select a location from the google places drop. You should turn this option on if you make use of any of the distance shipping workflows. %s', 'map-location-picker-at-checkout-for-woocommerce' ), "<a href='https://lpacwp.com/docs/places-autocomplete-feature/?utm_source=generaltab&utm_medium=lpacdashboard&utm_campaign=freedocs#force-use-of-autocomplete-feature' target='blank'>" . self::$learn_more . '</a>' ),
@@ -1096,7 +1118,7 @@ HTML;
             'is_option'         => false,
         );
         $lpac_dummy_pro_settings[] = array(
-            'name'              => __( 'Ship Only to Drawn Regions.', 'map-location-picker-at-checkout-for-woocommerce' ),
+            'name'              => __( 'Ship Only to Drawn Regions', 'map-location-picker-at-checkout-for-woocommerce' ),
             'desc'              => __( 'Yes', 'map-location-picker-at-checkout-for-woocommerce' ),
             'desc_tip'          => __( 'If checked, a customer WILL NOT be able to place an order unless they choose a location that falls within any of your drawn regions. Pair this setting with the "Force Use of Map" general option for best results.', 'map-location-picker-at-checkout-for-woocommerce' ),
             'id'                => 'lpac_ship_only_to_drawn_regions',

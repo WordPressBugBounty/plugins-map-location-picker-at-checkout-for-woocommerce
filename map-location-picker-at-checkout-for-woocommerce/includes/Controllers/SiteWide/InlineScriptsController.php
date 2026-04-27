@@ -22,7 +22,7 @@ use Lpac\Models\Plugin_Settings\Store_Locations;
  *
  * @package \Lpac\Controllers\Sitewide\InlineScriptsController
  * @since   1.0.0
- * TODO add all applicable calls to wp_add_inline_script to this class or create similiar classes for the applicable use such as Checkout_Page.
+ * TODO add all applicable calls to wp_add_inline_script to this class or create similiar classes for the applicable use such as CheckoutPage.
  */
 class InlineScriptsController {
 

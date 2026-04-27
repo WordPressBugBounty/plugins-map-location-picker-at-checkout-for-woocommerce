@@ -49,6 +49,16 @@ class General_Settings extends Base_Model {
 	}
 
 	/**
+	 * Whether to use places autocomplete (new) api.
+	 *
+	 * @return bool
+	 * @since 1.11.0
+	 */
+	public static function getUseNewPlacesAutocompleteSetting(): bool {
+		return filter_var( get_option( 'lpac_use_new_places_autocomplete_api' ), FILTER_VALIDATE_BOOLEAN );
+	}
+
+	/**
 	 * Get the text for the force autocomplete feature.
 	 *
 	 * @return string
@@ -56,6 +66,16 @@ class General_Settings extends Base_Model {
 	 */
 	public static function get_force_places_autocomplete_notice_text(): string {
 		return get_option( 'lpac_force_places_autocomplete_notice_text', '' );
+	}
+
+	/**
+	 * Get the fields that places autocomplete should be attached to.
+	 *
+	 * @return array
+	 * @since 1.11.0
+	 */
+	public static function getPlacesAutocompleteFields(): array {
+		return get_option( 'lpac_places_autocomplete_fields', array() );
 	}
 
 	/**

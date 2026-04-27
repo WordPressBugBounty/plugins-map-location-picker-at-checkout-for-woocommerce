@@ -15,6 +15,7 @@ namespace Lpac\Controllers;
 
 use Lpac\Helpers\QR_Code_Generator;
 use Lpac\Helpers\Functions;
+use Lpac\Models\Plugin_Settings\Store_Locations;
 use Lpac\Traits\Upload_Folders;
 use WC_Order;
 
@@ -213,8 +214,7 @@ class Emails_Controller {
 			return;
 		}
 
-		$label             = get_option( 'lpac_store_select_label' ) ?: esc_html( 'Deliver from', 'map-location-picker-at-checkout-for-woocommerce' );
-		$label             = rtrim( $label, ':' );
+		$label             = Store_Locations::getStoreSelectorLabelSetting();
 		$store_origin_name = $order->get_meta( '_lpac_order__origin_store_name' );
 
 		if ( empty( $store_origin_name ) ) {
@@ -244,7 +244,7 @@ class Emails_Controller {
 		?>
 		<hr>
 		<p>
-		<span style='font-size: 18px'><?php echo esc_html( $label ); ?>:</span>
+		<span style='font-size: 18px'><?php echo esc_html( $label ); ?></span>
 		<br/>
 		<br/>
 		<a style='font-weight: bold;' href='<?php echo esc_attr( $link ); ?>' target='_blank'>

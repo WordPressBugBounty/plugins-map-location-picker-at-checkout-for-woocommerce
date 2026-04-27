@@ -34,7 +34,7 @@ use Lpac\Compatibility\Caching\Siteground_Optimizer;
 use Lpac\Controllers\Emails_Controller;
 use Lpac\Controllers\Map_Visibility_Controller;
 use Lpac\Controllers\AdminSettingsController;
-use Lpac\Controllers\Checkout_Page\Validate as Checkout_Page_Validation;
+use Lpac\Controllers\CheckoutPage\Validate as Checkout_Page_Validation;
 use Lpac\Controllers\Shortcodes as Shortcodes_Controller;
 use Lpac\Helpers\Functions as FunctionsHelper;
 use Lpac\Helpers\Logger;
@@ -345,13 +345,19 @@ class Main {
          */
         $output_location = get_option( 'lpac_checkout_map_orientation', 'woocommerce_checkout_before_customer_details' );
         $output_location = apply_filters( 'lpac_checkout_map_orientation', $output_location );
-        $class = new \Lpac\Views\Frontend\Frontend();
         $priority = apply_filters( 'kikote_checkout_map_orientation_filter_priority', 9 );
         $this->loader->add_action(
             $output_location,
-            $class,
+            $plugin_public_display,
             'outputCheckoutMap',
             $priority
+        );
+        // Hide default billing and shipping address fields if places autocomplete option is enabled.
+        $this->loader->add_action(
+            'woocommerce_checkout_fields',
+            $plugin_public_display,
+            'hideBillingAndShippingAddress1Fields',
+            99999
         );
         /*
          * Translated alert strings for checkout page.
