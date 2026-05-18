@@ -3,8 +3,8 @@ Contributors: uriahs-victor
 Tags: woocommerce, location picker, checkout map, geolocation, google map
 Requires at least: 5.5
 Requires PHP: 7.4
-Tested up to: 6.9
-Stable tag: 1.11.0
+Tested up to: 7.0
+Stable tag: 1.11.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -279,6 +279,13 @@ Post it on the [support forum](https://wordpress.org/support/plugin/map-location
 Always take a backup before updating your plugins!
 
 == Changelog ==
+
+= 1.11.2 (2026-05-18) =
+* [Dev] Updated plugin headers to state tested up to versions.
+
+= 1.11.1 (2026-05-18) =
+* [Info] Tested on WP 7.0.
+* [Info] Tested on WC 10.8.
 
 = 1.11.0 (2026-04-27) =
 * [New] Add Google Places Autocomplete (New) to plugin.
